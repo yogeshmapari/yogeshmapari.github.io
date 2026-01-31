@@ -1,0 +1,102 @@
+# ⚡ Quick GitHub Setup (5 Steps)
+
+## ✅ Requirements
+- Git installed (download from https://git-scm.com/download/win)
+- GitHub account (sign up at https://github.com)
+
+---
+
+## 🚀 5-Step Quick Setup
+
+### 1️⃣ Install Git
+- Download from: https://git-scm.com/download/win
+- Run installer with default settings
+- Restart your computer
+- Open Command Prompt and test: `git --version`
+
+### 2️⃣ Configure Git (First Time Only)
+```bash
+git config --global user.name "Yogesh Mapari"
+git config --global user.email "patilmapari@gmail.com"
+```
+
+### 3️⃣ Create GitHub Repository
+- Go to: https://github.com/new
+- Name it: `yogeshmapari.github.io`
+- Click "Create Repository"
+- Copy the HTTPS URL (looks like: `https://github.com/YOUR_USERNAME/yogeshmapari.github.io.git`)
+
+### 4️⃣ Push Your Portfolio (Copy & Paste)
+
+Open Command Prompt, navigate to your portfolio folder, then paste these commands one-by-one:
+
+```bash
+cd C:\Users\patil\OneDrive\Desktop\projects\git\yogeshmapari.github.io
+
+git init
+
+git add .
+
+git commit -m "Enhanced portfolio with modern design"
+
+git remote add origin https://github.com/YOUR_USERNAME/yogeshmapari.github.io.git
+
+git branch -M main
+
+git push -u origin main
+```
+
+⚠️ **Replace `YOUR_USERNAME` with your GitHub username!**
+
+### 5️⃣ Enable GitHub Pages
+- Go to: https://github.com/YOUR_USERNAME/yogeshmapari.github.io
+- Click Settings → Pages
+- Select "Deploy from a branch"
+- Choose branch: `main`
+- Folder: `/ (root)`
+- Click Save
+
+---
+
+## ✨ Done! Your Portfolio is Live
+
+Your portfolio will be available at: **https://yogeshmapari.github.io**
+
+---
+
+## 📋 Common Commands
+
+```bash
+# Check status
+git status
+
+# Add changes
+git add .
+
+# Commit
+git commit -m "Your message"
+
+# Push to GitHub
+git push
+
+# Pull from GitHub
+git pull
+```
+
+---
+
+## ❓ Troubleshooting
+
+**Git command not found?**
+- Restart Command Prompt after installing Git
+
+**Authentication failed?**
+- Use your GitHub password or create a Personal Access Token
+- Go to: https://github.com/settings/tokens
+
+**Files not showing on GitHub?**
+- Make sure you did: `git push` (after add and commit)
+
+---
+
+For detailed guide, see: **GITHUB_SETUP.md**

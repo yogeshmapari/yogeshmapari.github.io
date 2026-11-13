@@ -1,42 +1,35 @@
 # Yogesh Mapari — Senior GCP Data Engineer
 
-A personal portfolio focused on cloud data engineering, enterprise data modernisation and event-driven systems on Google Cloud Platform.
+Personal portfolio: https://yogeshmapari.github.io
 
-**Live site:** https://yogeshmapari.github.io  
-**GitHub:** https://github.com/yogeshmapari  
-**LinkedIn:** https://www.linkedin.com/in/yogesh-mapari-71ba52183/
+## Design direction
 
-## Portfolio direction
-
-The site uses a restrained editorial visual system: warm paper tones, deep forest green, expressive typography, generous spacing and a responsive single-page layout. The intent is to feel considered and professional rather than like a generic developer template.
+A complete visual redesign built around the idea **“Data, engineered.”** The site uses a deep graphite/forest palette, acid-lime accents, technical typography, a custom SVG data-systems illustration and an editorial case-study layout. It is intentionally distinct from a generic resume template.
 
 ## Sections
 
-- **Introduction** — Senior GCP Data Engineer positioning and professional snapshot.
-- **Impact** — project-scale figures from the current resume.
-- **Approach** — engineering principles and working focus.
-- **Experience** — Saama Technologies, Onix and Infosys.
-- **Selected work** — high-level descriptions of healthcare MDM integration, Teradata-to-BigQuery modernisation and cross-cloud migration.
-- **Expertise** — cloud, programming, orchestration, platform delivery and governance.
-- **Credentials** — certifications, education and languages.
-- **Contact** — LinkedIn connection.
+- Personal positioning and professional snapshot
+- Engineering principles and approach
+- Career timeline: Saama Technologies, Onix and Infosys
+- Selected work: healthcare MDM integration, Teradata-to-BigQuery modernisation, and cross-cloud migration
+- Technical capabilities
+- Certifications, education and languages
+- LinkedIn contact
 
-## Technology
+## Implementation
 
-- Semantic HTML
-- CSS custom properties and responsive layouts
-- Vanilla JavaScript for mobile navigation and section tracking
-- Google Fonts (DM Sans, Manrope and DM Mono)
+- Semantic HTML5
+- Custom responsive CSS
+- Inline SVG illustration (no external image dependency)
+- Vanilla JavaScript for mobile navigation, active-section tracking and back-to-top control
+- Google Fonts: Space Grotesk, DM Sans and DM Mono
+- No framework, build process or package installation required
 
-No build step, framework or package installation is required. GitHub Pages serves the static site directly.
-
-## Run locally
-
-Open `index.html` in a browser, or serve the repository with any static HTTP server.
+Open `index.html` directly or serve the repository using any static HTTP server. GitHub Pages hosts the site.
 
 ## Content accuracy
 
-Professional facts and career details are based on the latest resume supplied for this portfolio refresh. Project architecture artwork is explicitly conceptual. Client-confidential implementation details are intentionally not published.
+Career facts, project context, technology and credentials are based on the latest resume supplied for this portfolio redesign. The MDM flow illustration is conceptual and is not represented as a production architecture diagram. Client-confidential implementation details are intentionally excluded.
 
 ---
 

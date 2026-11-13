@@ -23,13 +23,61 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 @media(max-width:850px){.hero{grid-template-columns:1fr;gap:35px;padding:70px 0}.visual{min-height:370px}.section-top{grid-template-columns:1fr;gap:13px}.intro-grid{gap:40px}.case-feature{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0;padding-left:0}.skills{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:580px){.wrap{width:calc(100% - 36px)}.top{height:67px}.menu{display:block}.nav{display:none;position:absolute;z-index:5;top:67px;left:0;right:0;padding:22px 18px;background:#17221c;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav.open{display:flex}.hero{padding:58px 0}.hero h1{font-size:58px}.hero-copy{font-size:15px}.hero-meta{gap:12px;flex-wrap:wrap}.visual{min-height:315px;padding:16px}.diagram{inset:58px 10px 38px;width:calc(100% - 20px);height:calc(100% - 96px)}.stats-grid{gap:0}.stat{padding:17px 14px}.stat:first-child,.stat:nth-child(3){padding-left:0}.stat b{font-size:31px}section{padding:73px 0}.intro-grid{grid-template-columns:1fr;gap:23px}.principles,.case-grid,.skills,.credential-grid{grid-template-columns:1fr}.job{grid-template-columns:1fr;gap:12px}.job-date{display:flex;gap:12px;align-items:center}.job-company{margin:0}.case-feature{padding:23px}.case-numbers{gap:18px}.flow-box{min-height:85px;padding:9px}.flow-box b{font-size:10px}.contact-panel{padding:30px 23px;display:block}.contact-panel .btn{margin-top:23px}.footer{flex-direction:column}.footer-links{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Motion, depth and data-detail layer */
+:root{--ease:cubic-bezier(.2,.75,.25,1)}
+.btn,.case-card,.skill,.principle,.stat,.job{transition:transform .45s var(--ease),border-color .35s,background .35s}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}
+.stat{position:relative;overflow:hidden}.stat:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
+.stat.in-view:after{transform:scaleX(1)}.stat b{font-variant-numeric:tabular-nums}
+.hero .eyebrow{animation:rise .8s both}.hero h1{animation:rise .9s .08s both}.hero-copy{animation:rise .9s .16s both}.hero .actions{animation:rise .9s .24s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.diagram .node{transform-box:fill-box;transform-origin:center;animation:nodePulse 4s ease-in-out infinite}.diagram .node-hot{animation:corePulse 3s ease-in-out infinite}
+@keyframes nodePulse{0%,100%{filter:drop-shadow(0 0 0 #c8f16900)}50%{filter:drop-shadow(0 0 8px #c8f16970)}}
+@keyframes corePulse{0%,100%{filter:drop-shadow(0 0 4px #c8f16955)}50%{filter:drop-shadow(0 0 18px #c8f169aa)}}
+.visual:after{animation:ambient 9s ease-in-out infinite alternate}@keyframes ambient{from{opacity:.55}to{opacity:1}}
+.data-band{padding:86px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#141e18,#101713)}
+.data-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}
+.data-head h2{font:600 clamp(30px,4vw,46px)/1 var(--display);letter-spacing:-.07em;margin:8px 0 0}
+.data-head p{max-width:440px;color:var(--muted);font-size:12px;margin:0}
+.data-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+.data-panel{border:1px solid var(--line);background:#17221c;padding:23px;min-height:250px;position:relative;overflow:hidden}
+.data-panel-head{display:flex;justify-content:space-between;gap:12px;font:9px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lime);margin-right:7px;box-shadow:0 0 0 4px #c8f1691c;animation:blink 1.8s infinite}
+@keyframes blink{50%{opacity:.35;box-shadow:0 0 0 8px #c8f16908}}
+.signal-chart{width:100%;height:145px;margin-top:18px;overflow:visible}
+.signal-chart .gridline{stroke:#405044;stroke-width:1;stroke-dasharray:3 7}
+.signal-chart .area{fill:url(#chartFill);opacity:.5}
+.signal-chart .line{fill:none;stroke:var(--lime);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:700;stroke-dashoffset:700}
+.in-view .signal-chart .line{animation:drawLine 2.4s .2s var(--ease) forwards}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+.signal-chart .point{fill:var(--lime);filter:drop-shadow(0 0 5px #c8f169)}
+.data-foot{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px}
+.data-foot span{font:9px var(--mono);color:var(--muted);text-transform:uppercase}.data-foot b{display:block;font:600 20px var(--display);color:var(--ink);margin-top:4px}
+.pipeline-list{display:grid;gap:14px;margin-top:24px}
+.pipeline-row{display:grid;grid-template-columns:100px 1fr 35px;align-items:center;gap:12px;font:9px var(--mono);color:var(--muted);text-transform:uppercase}
+.pipeline-track{height:5px;background:#2b3a30;overflow:hidden}.pipeline-fill{height:100%;width:0;background:linear-gradient(90deg,#78965a,var(--lime));transition:width 1.4s var(--ease)}
+.in-view .pipeline-fill{width:var(--fill)}
+.migration-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.migration-item{border:1px solid var(--line);padding:16px;background:#141e18}
+.migration-item small{font:8px var(--mono);color:var(--orange);letter-spacing:.12em}
+.migration-item b{display:block;font:500 14px var(--display);margin:8px 0 4px}.migration-item span{font:9px var(--mono);color:var(--muted)}
+.resume-cta{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:#152017;border:1px solid var(--lime);padding:12px 16px;font:11px var(--mono);letter-spacing:.04em;transition:.25s}
+.resume-cta:hover{transform:translateY(-3px);box-shadow:0 10px 28px #c8f16922}.resume-cta .download-icon{font-size:17px}
+@media(max-width:850px){.data-grid{grid-template-columns:1fr}.data-head{display:block}.data-head p{margin-top:15px}.migration-strip{grid-template-columns:1fr}}
+@media(max-width:580px){.data-band{padding:68px 0}.data-panel{padding:17px}.pipeline-row{grid-template-columns:80px 1fr 30px}.migration-strip{gap:8px}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero .eyebrow,.hero h1,.hero-copy,.hero .actions,.diagram .node,.diagram .node-hot,.visual:after,.live-dot{animation:none}.in-view .signal-chart .line{stroke-dashoffset:0}.pipeline-fill{width:var(--fill);transition:none}}
+
 </style>
 </head>
 <body>
 <header class="wrap top" id="top">
 <a class="logo" href="#top"><span class="logo-mark"><span>YM</span></span><span>YOGESH MAPARI</span></a>
 <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
-<nav class="nav" id="nav"><a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a><a href="#work">WORK</a><a href="#expertise">EXPERTISE</a><a class="contact-link" href="#contact">LET'S CONNECT ↗</a></nav>
+<nav class="nav" id="nav"><a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a><a href="#work">WORK</a><a href="#expertise">EXPERTISE</a><a class="contact-link" href="#contact">LET'S CONNECT ↗</a><a class="contact-link" href="assets/Yogesh_Mapari_Senior_GCP_Data_Engineer_Resume.pdf" download>RESUME ↓</a></nav>
 </header>
 <main>
 <div class="wrap hero">
@@ -37,7 +85,7 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 <div class="eyebrow">Senior GCP Data Engineer <span style="color:#75877a">/</span> Pune, India</div>
 <h1>Data,<br><span class="outline">engineered.</span></h1>
 <p class="hero-copy">I’m <strong>Yogesh Mapari</strong>. I design and build cloud data systems that turn complex enterprise information into reliable, usable platforms — with <strong>Google Cloud</strong> at the centre.</p>
-<div class="actions"><a class="btn primary" href="#work">EXPLORE SELECTED WORK <span class="arrow">↘</span></a><a class="btn" href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></div>
+<div class="actions"><a class="btn primary" href="#work">EXPLORE SELECTED WORK <span class="arrow">↘</span></a><a class="btn" href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">LINKEDIN ↗</a><a class="resume-cta" href="assets/Yogesh_Mapari_Senior_GCP_Data_Engineer_Resume.pdf" download>DOWNLOAD RESUME <span class="download-icon">↓</span></a></div>
 <div class="hero-meta"><span><i class="pulse"></i> 5+ YEARS EXPERIENCE</span><span>GCP · PYTHON · SQL</span></div>
 </div>
 <div class="visual">
@@ -61,7 +109,29 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 <div class="stats"><div class="wrap stats-grid">
 <div class="stat"><b>70</b><span>Source systems</span></div><div class="stat"><b>~1M</b><span>Events per day</span></div><div class="stat"><b>45M</b><span>Spanner records</span></div><div class="stat"><b>20</b><span>Cloud Run services</span></div>
 </div></div>
-<section id="about"><div class="wrap">
+
+<div class="data-band"><div class="wrap">
+<div class="data-head"><div><div class="section-id">DATA / AT A GLANCE</div><h2>Engineering at enterprise scale.</h2></div><p>Selected scale indicators and programme context from my professional experience. Illustrative visualisation only — not a live production dashboard.</p></div>
+<div class="data-grid">
+<div class="data-panel reveal"><div class="data-panel-head"><span><i class="live-dot"></i>PROGRAMME SCALE / MDM</span><span>01 — SYSTEM FOOTPRINT</span></div>
+<svg class="signal-chart" viewBox="0 0 620 150" role="img" aria-label="Illustrative animated data-flow signal chart">
+<defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c8f169" stop-opacity=".35"/><stop offset="1" stop-color="#c8f169" stop-opacity="0"/></linearGradient></defs>
+<path class="gridline" d="M0 25H620 M0 65H620 M0 105H620 M0 145H620"/>
+<path class="area" d="M0 118 C35 111 43 85 78 92 S125 126 160 85 S210 49 245 70 S292 95 325 56 S375 35 410 61 S460 90 495 43 S555 48 620 14 V150 H0Z"/>
+<path class="line" d="M0 118 C35 111 43 85 78 92 S125 126 160 85 S210 49 245 70 S292 95 325 56 S375 35 410 61 S460 90 495 43 S555 48 620 14"/>
+<circle class="point" cx="495" cy="43" r="4"/><circle class="point" cx="620" cy="14" r="4"/></svg>
+<div class="data-foot"><span><b data-count="70">70</b>Integrated source systems</span><span><b data-count="1000000" data-format="million">~1M</b>Events / day</span><span><b data-count="45000000" data-format="million">45M</b>Spanner records</span></div></div>
+<div class="data-panel reveal reveal-delay-1"><div class="data-panel-head"><span>PLATFORM COMPONENTS</span><span>02 — SERVICE MIX</span></div>
+<div class="pipeline-list">
+<div class="pipeline-row"><span>Cloud Run</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:100%"></div></div><b>20</b></div>
+<div class="pipeline-row"><span>Pub/Sub</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:82%"></div></div><b>~1M</b></div>
+<div class="pipeline-row"><span>Spanner</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:90%"></div></div><b>45M</b></div>
+<div class="pipeline-row"><span>Sources</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:78%"></div></div><b>70</b></div></div>
+<div class="data-foot"><span><b>100–200ms</b>Measured processing latency</span></div></div></div>
+<div class="migration-strip">
+<div class="migration-item reveal"><small>01 / HEALTHCARE MDM</small><b>Nixgate → Verato</b><span>Saama · Ascension</span></div>
+<div class="migration-item reveal reveal-delay-1"><small>02 / DATA WAREHOUSE</small><b>Teradata → BigQuery</b><span>Infosys · METRO Europe</span></div>
+<div class="migration-item reveal reveal-delay-2"><small>03 / CLOUD STORAGE</small><b>AWS S3 → GCS</b><span>Onix · Nordstrom</span></div></div></div></div><section id="about"><div class="wrap">
 <div class="section-top"><div class="section-id">01 / PERSPECTIVE</div><div><h2 class="section-title">I build the systems<br>behind the data.</h2><p class="section-desc">From source integration to dependable data serving, I focus on the engineering underneath products, analytics and enterprise decisions.</p></div></div>
 <div class="intro-grid"><p class="statement">“Complexity is inevitable.<br><em>Unreliable data systems</em><br>are not.”</p><div><p class="intro-text">My experience spans enterprise data modernisation, cloud-native integration and master data management across healthcare and retail. I work across ingestion, transformation, orchestration, serving and deployment.</p><p class="intro-text">I care about the fundamentals that make platforms useful in production: resilient workflows, clear data contracts, idempotent processing, security, observability and thoughtful use of managed cloud services.</p>
 <div class="principles"><div class="principle"><small>01</small><b>Reliability first</b><span>Design for retries, duplicates and failure recovery.</span></div><div class="principle"><small>02</small><b>Cloud-native</b><span>Use managed services to build scalable systems.</span></div><div class="principle"><small>03</small><b>Clear operations</b><span>Make pipelines observable and maintainable.</span></div><div class="principle"><small>04</small><b>Responsible data</b><span>Keep governance and security in the design.</span></div></div></div></div>
@@ -99,10 +169,14 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 <footer class="wrap footer"><span>© <span id="year"></span> YOGESH MAPARI · BUILT WITH INTENT</span><div class="footer-links"><a href="https://github.com/yogeshmapari" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">LINKEDIN ↗</a><a href="#top">BACK TO TOP ↑</a></div></footer>
 <a class="top-btn" id="topbtn" href="#top" aria-label="Back to top">↑</a>
 <script>
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');revealObserver.unobserve(entry.target)}}),{threshold:.14});
+document.querySelectorAll('section,.stat,.case-feature,.case-card,.skill,.principle,.credential,.data-panel,.migration-item').forEach((el,i)=>{el.classList.add('reveal');if(i%3)el.classList.add('reveal-delay-'+(i%3));revealObserver.observe(el)});
 const menu=document.getElementById('menu'),nav=document.getElementById('nav');
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
 document.getElementById('year').textContent=new Date().getFullYear();
+const metricObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){const el=entry.target;const target=Number(el.dataset.count);if(target){const start=performance.now(),duration=1300;const tick=now=>{const p=Math.min((now-start)/duration,1),v=Math.round(target*(1-Math.pow(1-p,3)));el.textContent=el.dataset.format==='million'?(v>=1000000?'~'+(v/1000000).toFixed(1)+'M':v.toLocaleString()):v.toLocaleString();if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)}metricObserver.unobserve(el)}}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>metricObserver.observe(el));
 const topbtn=document.getElementById('topbtn');window.addEventListener('scroll',()=>topbtn.classList.toggle('show',window.scrollY>450),{passive:true});
 const sections=[...document.querySelectorAll('main section[id]')],links=[...nav.querySelectorAll('a[href^="#"]')];
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-35% 0px -55% 0px'});

@@ -1,906 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yogesh Mapari - GCP Data Engineer | Python | Cloud Architecture">
-  <meta name="keywords" content="Data Engineer, GCP, Python, Cloud Architecture, BigQuery, Apache Airflow">
-  <title>Yogesh Mapari - GCP Data Engineer Portfolio</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <meta name="description" content="Yogesh Mapari — Senior GCP Data Engineer. Building reliable cloud data platforms, event-driven systems and modern data pipelines.">
+  <meta property="og:title" content="Yogesh Mapari — Senior GCP Data Engineer">
+  <meta property="og:description" content="Cloud data engineering, thoughtfully architected.">
+  <meta property="og:type" content="website">
+  <title>Yogesh Mapari — Senior GCP Data Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#f4f2ec;--white:#fbfaf6;--ink:#17231f;--muted:#65716b;--line:#dcded5;--green:#1d5b48;--green2:#dce9df;--orange:#c66b43;--serif:Georgia,"Times New Roman",serif;--sans:"DM Sans",sans-serif;--display:Manrope,sans-serif;--mono:"DM Mono",monospace;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(var(--max),calc(100% - 56px));margin:auto}.topbar{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font:800 17px var(--display);letter-spacing:-.06em}.brand span{color:var(--green)}.nav{display:flex;gap:30px;align-items:center}.nav a{font-size:13px;color:var(--muted);transition:.2s}.nav a:hover,.nav a.active{color:var(--ink)}.nav .nav-cta{border:1px solid var(--ink);padding:9px 15px;color:var(--ink)}.menu{display:none;border:0;background:none;font-size:24px;color:var(--ink)}
+    .hero{padding:100px 0 86px;display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:end}.eyebrow,.kicker{font:11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--green)}.eyebrow{display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:28px;height:1px;background:var(--green)}h1{font:600 clamp(48px,7vw,88px)/.99 var(--display);letter-spacing:-.075em;margin:27px 0 25px;max-width:760px}h1 em{font:italic 500 1em var(--serif);letter-spacing:-.07em;color:var(--green)}.hero-copy{font-size:18px;color:#53615a;max-width:620px;line-height:1.7}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:12px;padding:13px 18px;border:1px solid var(--ink);font-size:13px;font-weight:600;transition:.2s}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn:hover{transform:translateY(-2px)}.btn .arrow{font-size:17px}.hero-aside{border-left:1px solid var(--line);padding:10px 0 10px 30px}.aside-label{font:10px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.availability{display:flex;align-items:center;gap:9px;margin:13px 0 30px;font-size:13px}.dot{width:8px;height:8px;border-radius:50%;background:#5c956f;box-shadow:0 0 0 4px #dce9df}.aside-detail{margin:0 0 18px}.aside-detail strong{display:block;font:600 15px var(--display)}.aside-detail span{font-size:12px;color:var(--muted)}
+    .metrics{background:var(--ink);color:#f6f4ed;padding:29px 0}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr)}.metric{padding:4px 26px;border-left:1px solid #405049}.metric:first-child{border:0;padding-left:0}.metric strong{display:block;font:600 34px var(--display);letter-spacing:-.06em}.metric span{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:#b7c2b9}
+    section.content{padding:100px 0;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:.55fr 1.45fr;gap:40px;margin-bottom:54px}.section-no{font:11px var(--mono);color:var(--orange);letter-spacing:.1em}.section-title{font:600 clamp(32px,4vw,48px)/1.1 var(--display);letter-spacing:-.06em;margin:0}.section-intro{max-width:620px;color:var(--muted);margin:15px 0 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.about-statement{font:italic 26px/1.4 var(--serif);letter-spacing:-.025em;margin:0;max-width:500px}.about-body{color:var(--muted);margin:0 0 17px}.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}.principle{padding:16px;border:1px solid var(--line);background:rgba(255,255,255,.25)}.principle b{font:600 13px var(--display);display:block}.principle span{font-size:12px;color:var(--muted)}
+    .experience{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:34px 0;border-top:1px solid var(--line)}.experience:first-of-type{border-top:0;padding-top:0}.exp-date{font:11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}.exp-company{font:600 13px var(--display);color:var(--green);margin-top:9px}.exp-role{font:600 23px var(--display);letter-spacing:-.04em;margin:0}.exp-context{color:var(--muted);font-size:13px;margin:4px 0 17px}.exp-points{padding-left:18px;margin:0;color:#59665f}.exp-points li{padding:4px 0}.exp-points li::marker{color:var(--orange)}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}.tag{font:10px var(--mono);padding:5px 9px;background:var(--green2);color:var(--green)}
+    .feature-project{background:var(--ink);color:#f4f2ec;padding:36px;display:grid;grid-template-columns:1fr .8fr;gap:35px;align-items:center;margin-bottom:18px}.project-overline{font:10px var(--mono);letter-spacing:.13em;color:#a9c5b3;text-transform:uppercase}.feature-project h3{font:600 29px/1.2 var(--display);letter-spacing:-.05em;margin:14px 0}.feature-project p{color:#c0c9c1;margin:0;max-width:560px}.architecture{border:1px solid #506058;padding:22px;display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr;gap:7px;align-items:center}.arch-node{min-height:70px;border:1px solid #718077;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;font:10px var(--mono);color:#e2e9e2}.arch-arrow{color:#a9c5b3;text-align:center}.project-foot{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-top:26px;padding-top:18px;border-top:1px solid #405049;font:10px var(--mono);color:#b7c2b9;text-transform:uppercase;letter-spacing:.08em}.project-foot strong{font-size:21px;color:#fff;letter-spacing:-.04em}.project-note{font-size:11px;color:var(--muted);margin:0 0 28px}.project-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project-card{padding:25px;border:1px solid var(--line);background:rgba(255,255,255,.22);min-height:180px}.project-card .card-no{font:10px var(--mono);color:var(--orange)}.project-card h3{font:600 19px var(--display);letter-spacing:-.035em;margin:16px 0 7px}.project-card p{font-size:13px;color:var(--muted);margin:0}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill-card{padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.22)}.skill-card h3{font:600 15px var(--display);margin:0 0 15px}.skill-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.9}.credentials{display:grid;grid-template-columns:1fr 1fr;gap:50px}.credential-group h3{font:600 17px var(--display);margin:0 0 20px}.credential{padding:14px 0;border-top:1px solid var(--line)}.credential strong{display:block;font-size:14px}.credential span{font-size:12px;color:var(--muted)}
+    .contact-band{background:var(--green);color:#f6f4ed;padding:58px;display:flex;justify-content:space-between;gap:35px;align-items:center}.contact-band h2{font:600 clamp(30px,4vw,46px)/1.1 var(--display);letter-spacing:-.06em;margin:0 0 10px}.contact-band p{margin:0;color:#d2e0d5}.contact-band .btn{border-color:#e9f0e9;color:var(--ink);background:#f6f4ed;white-space:nowrap}.footer{padding:28px 0;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}.footer-links{display:flex;gap:20px}.footer a:hover{color:var(--green)}.backtop{position:fixed;right:22px;bottom:22px;width:42px;height:42px;background:var(--ink);color:white;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.2s}.backtop.show{opacity:1;pointer-events:auto}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:35px;padding:70px 0}.hero-aside{border-left:0;border-top:1px solid var(--line);padding:22px 0 0;display:grid;grid-template-columns:1fr 1fr}.aside-label,.availability{grid-column:1/-1}.metric{padding:4px 14px}.metric strong{font-size:27px}.section-head{grid-template-columns:1fr;gap:15px}.about-grid{grid-template-columns:1fr;gap:28px}.feature-project{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.experience{grid-template-columns:1fr;gap:12px}.exp-date{display:flex;gap:10px}.exp-company{margin:0}.contact-band{padding:38px;flex-direction:column;align-items:flex-start}}
+    @media(max-width:560px){.wrap{width:min(100% - 36px,var(--max))}.topbar{height:66px}.menu{display:block}.nav{display:none;position:absolute;z-index:5;top:66px;left:0;right:0;background:var(--white);padding:20px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav.open{display:flex}.hero{padding:58px 0}.hero-copy{font-size:16px}h1{font-size:51px}.metric-grid{grid-template-columns:repeat(2,1fr);gap:20px}.metric:nth-child(3){border:0;padding-left:0}.metric strong{font-size:30px}section.content{padding:68px 0}.principles,.project-list,.skills-grid,.credentials{grid-template-columns:1fr}.feature-project{padding:24px}.architecture{padding:13px;grid-template-columns:1fr 14px 1fr 14px 1fr}.arch-node{font-size:8px;min-height:62px;padding:4px}.project-foot{align-items:flex-start;flex-direction:column}.contact-band{padding:30px 24px}.footer{flex-direction:column}.footer-links{flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
 </head>
-
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.jpg" alt="Yogesh Mapari" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Yogesh Mapari">Yogesh Mapari</h1>
-
-          <p class="title">GCP Data Engineer</p>
+  <header class="wrap topbar">
+    <a class="brand" href="#top" aria-label="Yogesh Mapari home">YM<span>.</span></a>
+    <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Selected work</a><a href="#expertise">Expertise</a><a class="nav-cta" href="#contact">Get in touch ↗</a>
+    </nav>
+  </header>
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Senior GCP Data Engineer · Pune, India</div>
+        <h1>Making data<br>work <em>at scale.</em></h1>
+        <p class="hero-copy">I’m Yogesh Mapari — a data engineer focused on building dependable cloud data platforms, event-driven systems and modern data pipelines on Google Cloud.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#experience">Explore my work <span class="arrow">↘</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
         </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
       </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:patilmapari@gmail.com" class="contact-link">patilmapari@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+919130633135" class="contact-link">+91 9130633135</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="19XX-00-00">abc 00, 19XX</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Pune, Maharashtra, India</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" title="LinkedIn Profile" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com" target="_blank" title="GitHub Profile" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://medium.com/@patilmapari" target="_blank" title="Medium Articles" class="social-link">
-              <ion-icon name="logo-medium"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            🚀 <strong>Data Engineer</strong> with 3+ years of proven expertise in designing and implementing scalable cloud solutions on Google Cloud Platform. I specialize in building robust data pipelines, cloud infrastructure, and automation solutions that drive business value.
-          </p>
-          <p>
-            💡 <strong>Core Expertise:</strong> GCP services (BigQuery, Dataflow, Cloud Storage, Pub/Sub, Cloud Functions), Python automation, Apache Airflow, SQL optimization, and secure cloud architecture.
-          </p>
-          <p>
-            🔐 <strong>Passion:</strong> Building secure, high-performance data systems while maintaining best practices in cloud security, data integrity, and compliance standards. I'm committed to continuous learning and staying at the forefront of cloud technology innovations.
-          </p>
-          <p>
-            🎯 <strong>Achievements:</strong> Successfully migrated legacy systems to GCP, designed ETL pipelines processing 100M+ records, implemented CI/CD automation reducing deployment time by 60%, and led cross-functional teams to deliver enterprise-grade solutions.
-          </p>
-        </section>
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/gcp.png" alt="GCP Services" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🔧 GCP Services</h4>
-
-                <p class="service-item-text">
-                  Deploying Python on GCP using Compute Engine, App Engine, Kubernetes Engine, Cloud Storage, Cloud SQL, BigQuery, Pub/Sub, Dataflow, Cloud Functions, and Cloud IAM.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/auto.png" alt="Automation" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🤖 Automation & Scripting</h4>
-
-                <p class="service-item-text">
-                  Developing Python scripts and frameworks to automate infrastructure, data validation, and manage GCP resources with efficiency and reliability.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/database.jpeg" alt="Database" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🔍 Database Design</h4>
-
-                <p class="service-item-text">
-                  Designing and maintaining relational databases on Cloud SQL, and utilizing NoSQL databases like Firestore and Bigtable for scalable data storage.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/proce.jpeg" alt="Data Processing" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">📊 Data Processing</h4>
-
-                <p class="service-item-text">
-                  Implementing data processing pipelines using Apache Beam, Dataflow, and Airflow. Conducting data analysis with BigQuery and SQL optimization.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/network.jpeg" alt="Networking" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🌐 Cloud Networking</h4>
-
-                <p class="service-item-text">
-                  Configuring GCP networking components, VPCs, firewalls, and networking services. Implementing Cloud Load Balancing, CDN, and hybrid connectivity.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/security.png" alt="Security" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🔐 Cloud Security</h4>
-
-                <p class="service-item-text">
-                  Enforcing security best practices, setting up IAM policies, implementing encryption, and conducting security assessments for robust protection.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/logg.jpeg" alt="Monitoring" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">📈 Monitoring & Logging</h4>
-
-                <p class="service-item-text">
-                  Setting up Cloud Logging and Cloud Monitoring, creating customized alerts, and dashboards for effective system health monitoring and troubleshooting.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/cicd.png" alt="CI/CD" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🛠️ CI/CD & DevOps</h4>
-
-                <p class="service-item-text">
-                  Implementing and maintaining CI/CD pipelines using Cloud Build, Jenkins, GitLab CI for continuous integration, testing, and deployment automation.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/collab.jpg" alt="Collaboration" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">🤝 Team Collaboration</h4>
-
-                <p class="service-item-text">
-                  Working collaboratively in cross-functional teams, communicating effectively, and utilizing Git for version control and code management.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-        <!--
-          - Certifications
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Certifications & Learning</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <ion-icon name="school-outline" style="font-size: 24px;"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Google Cloud Professional</h4>
-
-                <p class="service-item-text">
-                  Pursuing Google Cloud Certifications including Professional Data Engineer and Professional Cloud Architect certifications.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <ion-icon name="code-outline" style="font-size: 24px;"></ion-icon>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Technical Excellence</h4>
-
-                <p class="service-item-text">
-                  Deep expertise in Python, SQL, and cloud architecture with hands-on experience across the entire data engineering lifecycle.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Senior Data Engineer / Lead Data Engineer</h4>
-
-              <span>2021 — Present</span>
-
-              <p class="timeline-text">
-                <strong>Project: METRO Germany</strong>
-              </p>
-
-              <div class="expandable" onclick="toggleDescription()">
-                <span style="cursor: pointer; color: #ffd700;">► More Details</span>
-              </div>
-
-              <div class="expanded-content" id="descriptionContent" style="display: none; margin-top: 10px;">
-                <ul style="padding-left: 20px;">
-                  <li>🚀 Designed, developed, and deployed scalable GCP Python solutions for enterprise clients</li>
-                  <li>🌐 Leveraged Google Cloud Platform services including Compute Engine, App Engine, and Kubernetes Engine</li>
-                  <li>🛠️ Utilized GCP tools such as Cloud Storage, Apache Airflow, Pub/Sub, and Cloud Functions</li>
-                  <li>🐍 Implemented secure Python data processing pipelines with 99.99% uptime</li>
-                  <li>🔒 Maintained data integrity by designing secure ETL processes for BigQuery integration</li>
-                  <li>🤝 Collaborated with cross-functional teams to deliver comprehensive cloud solutions</li>
-                  <li>🏛️ Contributed to cloud architecture discussions and security controls</li>
-                  <li>🔍 Conducted security assessments and vulnerability scanning</li>
-                  <li>🔐 Implemented least privilege access controls and IAM policies</li>
-                </ul>
-              </div>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">National Institute of Technology (NIT), Andhra Pradesh</h4>
-
-              <span>2017 — 2021</span>
-
-              <p class="timeline-text">
-                <strong>Bachelor of Technology</strong> in Mechanical Engineering | CGPA: 7.2+
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Riverdale High School</h4>
-
-              <span>2014 — 2016</span>
-
-              <p class="timeline-text">
-                Higher Secondary Education in PCM (Class 11th & 12th) | Percentage: 80%+
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Jawahar Navodaya Vidyalaya, Washim</h4>
-
-              <span>2009 — 2014</span>
-
-              <p class="timeline-text">
-                Primary & Secondary Education
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">TECHNICAL SKILLS</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Google Cloud Platform</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Python & Automation</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">SQL & Databases</h5>
-                <data value="95">95%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 95%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Cloud Security & IAM</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Apache Airflow & Orchestration</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">CI/CD & DevOps</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-        <h3 class="h3 clients-title" style="margin-top: 30px;">Download Resume</h3>
-
-        <ul class="clients-list has-scrollbar">
-
-          <li class="clients-item">
-            <a href="./Yogesh_Mapari_gcp_data_engineer_4plus_v1.pdf" target="_blank">
-              <img src="./assets/images/resume1.jpg" alt="GCP Data Engineer Resume 4+ Years">
-            </a>
-          </li>
-
-          <li class="clients-item">
-            <a href="./Yogesh_Mapari_Resume_vs1_2024.pdf" target="_blank">
-              <img src="./assets/images/resume.png" alt="Latest Resume 2024">
-            </a>
-          </li>
-
-        </ul>
-
-      </article>
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>GCP</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Python</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>SQL</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>GCP</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Python</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>SQL</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="GCP">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/gcp.jpg" alt="Cloud Migration Architecture" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Cloud Migration & Infrastructure</h3>
-
-                <p class="project-category">GCP</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="GCP">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/gcp.jpg" alt="BigQuery Data Warehouse" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">BigQuery Data Warehouse</h3>
-
-                <p class="project-category">GCP</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Python">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/python.jpg" alt="Apache Airflow Pipelines" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Apache Airflow ETL Orchestration</h3>
-
-                <p class="project-category">Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Python">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/python.jpg" alt="Python Automation Framework" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Python Automation Framework</h3>
-
-                <p class="project-category">Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Python">
-              <a href="https://medium.com/@patilmapari/automating-mouse-movements-e6339518d1f0" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="open-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/python.jpg" alt="Mouse & Keyboard Automation" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Mouse & Keyboard Automation</h3>
-
-                <p class="project-category">Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="SQL">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/sqldata.png" alt="Data Pipeline Architecture" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Data Pipeline Architecture</h3>
-
-                <p class="project-category">SQL</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="GCP">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/gcp.jpg" alt="CI/CD Pipeline" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">CI/CD Pipeline & DevOps</h3>
-
-                <p class="project-category">GCP</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://maps.google.com/maps?q=hinjewadi+pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              width="400" height="300" loading="lazy" title="Location Map"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Get In Touch</h3>
-
-          <p style="margin-bottom: 20px; color: #ccc;">
-            I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
-          </p>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
+      <aside class="hero-aside">
+        <div class="aside-label">Professional snapshot</div>
+        <div class="availability"><span class="dot"></span> Open to meaningful engineering conversations</div>
+        <div class="aside-detail"><strong>5+ years</strong><span>Data engineering experience</span></div>
+        <div class="aside-detail"><strong>Google Cloud</strong><span>Primary cloud ecosystem</span></div>
+        <div class="aside-detail"><strong>Healthcare · Retail · Enterprise</strong><span>Cross-domain delivery experience</span></div>
+        <div class="aside-detail"><strong>Python · SQL · Distributed data</strong><span>Core engineering toolkit</span></div>
+      </aside>
     </div>
-
+    <div class="metrics"><div class="wrap metric-grid">
+      <div class="metric"><strong>70</strong><span>Source systems · MDM programme</span></div>
+      <div class="metric"><strong>~1M</strong><span>Events per day</span></div>
+      <div class="metric"><strong>45M</strong><span>Spanner records</span></div>
+      <div class="metric"><strong>20</strong><span>Cloud Run services</span></div>
+    </div></div>
+    <section class="content" id="about"><div class="wrap">
+      <div class="section-head"><div class="section-no">01 / THE APPROACH</div><div><h2 class="section-title">Engineering with clarity.<br>Platforms built to last.</h2><p class="section-intro">I work across the data lifecycle — from ingestion and transformation to orchestration, serving, deployment and operational visibility.</p></div></div>
+      <div class="about-grid">
+        <p class="about-statement">“Good data engineering is not just moving data. It is making the right data dependable, observable and useful.”</p>
+        <div><p class="about-body">My experience spans enterprise data modernisation, cloud-native integration and master data management. I enjoy turning complex source ecosystems into well-structured, maintainable data products.</p><p class="about-body">My work is grounded in practical architecture: choosing the right managed services, designing resilient pipelines, handling scale and duplicates, and keeping security and governance in view.</p>
+          <div class="principles"><div class="principle"><b>Reliable by design</b><span>Resilience, idempotency and data quality</span></div><div class="principle"><b>Cloud-native thinking</b><span>Managed services and event-driven patterns</span></div><div class="principle"><b>Operational clarity</b><span>Monitoring, deployment and maintainability</span></div><div class="principle"><b>Security-conscious</b><span>Governance and regulated data practices</span></div></div>
+        </div>
+      </div>
+    </div></section>
+    <section class="content" id="experience"><div class="wrap">
+      <div class="section-head"><div class="section-no">02 / EXPERIENCE</div><div><h2 class="section-title">Where I’ve made<br>an impact.</h2><p class="section-intro">A progression through cloud data engineering, enterprise migration and production-grade data platforms.</p></div></div>
+      <article class="experience"><div><div class="exp-date">Feb 2025 — Present</div><div class="exp-company">Saama Technologies</div></div><div><h3 class="exp-role">GCP Data Engineer</h3><p class="exp-context">Client: Ascension · US Healthcare · Master Data Management migration</p><ul class="exp-points"><li>Contributing to an MDM migration from Nixgate to Verato, integrating data from approximately 70 source systems.</li><li>Working on event and file-based ingestion patterns, with Verato responses flowing through Pub/Sub into downstream services.</li><li>Building and supporting cloud-native services using Cloud Run, Pub/Sub and Cloud Spanner to process source and master data.</li><li>Project scale represented in the current programme: approximately 1M events/day, 45M Spanner records and 20 Cloud Run services.</li><li>Working within healthcare data governance and security expectations, including HIPAA-aligned practices.</li></ul><div class="tags"><span class="tag">Pub/Sub</span><span class="tag">Cloud Run</span><span class="tag">Cloud Spanner</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Airflow</span></div></div></article>
+      <article class="experience"><div><div class="exp-date">Sep 2024 — Jan 2025</div><div class="exp-company">Onix</div></div><div><h3 class="exp-role">Data Engineer</h3><p class="exp-context">Client: Nordstrom · Cloud data migration</p><ul class="exp-points"><li>Worked on a cloud migration initiative moving data from AWS S3 to Google Cloud Storage.</li><li>Used Python, PySpark, BigQuery and orchestration technologies to support data movement and transformation workflows.</li><li>Worked with Airflow and Kafka as part of the data engineering ecosystem.</li></ul><div class="tags"><span class="tag">GCS</span><span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">Airflow</span><span class="tag">Kafka</span></div></div></article>
+      <article class="experience"><div><div class="exp-date">Oct 2021 — Sep 2024</div><div class="exp-company">Infosys</div></div><div><h3 class="exp-role">Data Engineer</h3><p class="exp-context">Client: METRO Europe · Teradata to BigQuery modernisation</p><ul class="exp-points"><li>Contributed to an enterprise data warehouse migration from Teradata to BigQuery.</li><li>Built and supported data engineering workflows using Python, SQL and Google Cloud services.</li><li>Worked with services and tooling including GCS, Pub/Sub, Cloud Functions, Dataflow, Dataproc, GKE, dbt and Terraform.</li></ul><div class="tags"><span class="tag">Teradata</span><span class="tag">BigQuery</span><span class="tag">Dataflow</span><span class="tag">Dataproc</span><span class="tag">GKE</span><span class="tag">dbt</span><span class="tag">Terraform</span></div></div></article>
+    </div></section>
+    <section class="content" id="work"><div class="wrap">
+      <div class="section-head"><div class="section-no">03 / SELECTED WORK</div><div><h2 class="section-title">Systems, not just<br>scripts.</h2><p class="section-intro">A closer look at the engineering problems represented in my professional experience. Client environments and implementation details are kept appropriately high-level.</p></div></div>
+      <article class="feature-project">
+        <div><div class="project-overline">Featured · Healthcare · MDM integration</div><h3>Event-driven master data integration</h3><p>A cloud-native integration pattern connecting source systems with an MDM platform, then ingesting master data responses into a durable serving layer for downstream use.</p><div class="project-foot"><span>Programme scale</span><strong>~1M events / day</strong></div></div>
+        <div class="architecture" aria-label="Conceptual data flow: source systems to MDM platform to cloud data services"><div class="arch-node">Source<br>systems</div><div class="arch-arrow">→</div><div class="arch-node">Verato<br>MDM</div><div class="arch-arrow">→</div><div class="arch-node">Pub/Sub<br>Cloud Run<br>Spanner</div></div>
+      </article>
+      <p class="project-note">Conceptual flow for illustration; not a production architecture diagram.</p>
+      <div class="project-list">
+        <article class="project-card"><div class="card-no">CASE 02 / DATA MODERNISATION</div><h3>Teradata → BigQuery migration</h3><p>Enterprise warehouse modernisation for a European retail organisation, using SQL, Python and Google Cloud data services.</p></article>
+        <article class="project-card"><div class="card-no">CASE 03 / CLOUD MIGRATION</div><h3>AWS S3 → Google Cloud Storage</h3><p>Cross-cloud data migration work for a retail client, supported by Python, PySpark and orchestration tooling.</p></article>
+      </div>
+    </div></section>
+    <section class="content" id="expertise"><div class="wrap">
+      <div class="section-head"><div class="section-no">04 / TOOLKIT</div><div><h2 class="section-title">The tools behind<br>the outcomes.</h2><p class="section-intro">A practical engineering toolkit across cloud platforms, data processing, orchestration and delivery.</p></div></div>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Google Cloud Platform</h3><p>BigQuery · Cloud Spanner · Pub/Sub · Cloud Run · GCS · Dataflow · Dataproc · GKE · Cloud Functions · Cloud SQL</p></div>
+        <div class="skill-card"><h3>Programming & data</h3><p>Python · SQL · PySpark · ETL / ELT · Data modelling · API integration · Distributed processing</p></div>
+        <div class="skill-card"><h3>Orchestration & streaming</h3><p>Apache Airflow · Kafka · Pub/Sub · DAG design · Event-driven workflows</p></div>
+        <div class="skill-card"><h3>Modern data stack</h3><p>dbt · Teradata · BigQuery · Cloud SQL · Data warehouse migration</p></div>
+        <div class="skill-card"><h3>Platform & delivery</h3><p>Terraform · CI/CD · Deployment monitoring · Cloud Monitoring · Cloud Logging</p></div>
+        <div class="skill-card"><h3>Security & governance</h3><p>IAM · Data governance · Security controls · HIPAA / GDPR-aware data practices</p></div>
+      </div>
+    </div></section>
+    <section class="content" id="credentials"><div class="wrap">
+      <div class="section-head"><div class="section-no">05 / CREDENTIALS</div><div><h2 class="section-title">Foundations &<br>continuous learning.</h2></div></div>
+      <div class="credentials">
+        <div class="credential-group"><h3>Certifications</h3>
+          <div class="credential"><strong>Google Cloud Professional Cloud Architect</strong><span>Google Cloud</span></div>
+          <div class="credential"><strong>Google Cloud Associate Cloud Engineer</strong><span>Google Cloud</span></div>
+          <div class="credential"><strong>Apache Airflow</strong><span>Astronomer certification</span></div>
+          <div class="credential"><strong>Python Developer</strong><span>Professional certification</span></div>
+        </div>
+        <div class="credential-group"><h3>Education</h3>
+          <div class="credential"><strong>B.Tech — Mechanical Engineering</strong><span>National Institute of Technology, Andhra Pradesh · Aug 2017 — May 2021</span></div>
+          <div class="credential"><strong>Languages</strong><span>English · Hindi · Marathi</span></div>
+        </div>
+      </div>
+    </div></section>
+    <section class="content" id="contact"><div class="wrap">
+      <div class="contact-band"><div><div class="project-overline">Have a data challenge in mind?</div><h2>Let’s build something<br>that matters.</h2><p>For engineering opportunities, collaboration and professional conversations.</p></div><a class="btn" href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>
+    </div></section>
   </main>
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <footer class="wrap footer"><span>© <span id="year"></span> Yogesh Mapari. Thoughtfully engineered.</span><div class="footer-links"><a href="https://github.com/yogeshmapari" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/yogesh-mapari-71ba52183/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="#top">Back to top ↑</a></div></footer>
+  <a class="backtop" id="backtop" href="#top" aria-label="Back to top">↑</a>
   <script>
-    function toggleDescription() {
-      var expandedContent = document.getElementById("descriptionContent");
-      expandedContent.style.display = (expandedContent.style.display === 'block') ? 'none' : 'block';
-    }
+    const menu=document.getElementById('menu'),nav=document.getElementById('nav');
+    menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const backtop=document.getElementById('backtop');window.addEventListener('scroll',()=>backtop.classList.toggle('show',window.scrollY>500),{passive:true});
+    const sections=[...document.querySelectorAll('main section[id]')],links=[...nav.querySelectorAll('a[href^="#"]')];
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id))}}),{rootMargin:'-35% 0px -55% 0px'});
+    sections.forEach(section=>observer.observe(section));
   </script>
-
 </body>
-
 </html>

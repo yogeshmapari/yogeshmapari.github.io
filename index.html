@@ -58,9 +58,8 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 .data-foot{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px}
 .data-foot span{font:9px var(--mono);color:var(--muted);text-transform:uppercase}.data-foot b{display:block;font:600 20px var(--display);color:var(--ink);margin-top:4px}
 .pipeline-list{display:grid;gap:14px;margin-top:24px}
-.pipeline-row{display:grid;grid-template-columns:100px 1fr 35px;align-items:center;gap:12px;font:9px var(--mono);color:var(--muted);text-transform:uppercase}
-.pipeline-track{height:5px;background:#2b3a30;overflow:hidden}.pipeline-fill{height:100%;width:0;background:linear-gradient(90deg,#78965a,var(--lime));transition:width 1.4s var(--ease)}
-.in-view .pipeline-fill{width:var(--fill)}
+.pipeline-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font:9px var(--mono);color:var(--muted);text-transform:uppercase}
+.pipeline-row b{font:600 13px var(--display);color:var(--lime);text-align:right}
 .migration-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
 .migration-item{border:1px solid var(--line);padding:16px;background:#141e18}
 .migration-item small{font:8px var(--mono);color:var(--orange);letter-spacing:.12em}
@@ -68,7 +67,7 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 .resume-cta{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:#152017;border:1px solid var(--lime);padding:12px 16px;font:11px var(--mono);letter-spacing:.04em;transition:.25s}
 .resume-cta:hover{transform:translateY(-3px);box-shadow:0 10px 28px #c8f16922}.resume-cta .download-icon{font-size:17px}
 @media(max-width:850px){.data-grid{grid-template-columns:1fr}.data-head{display:block}.data-head p{margin-top:15px}.migration-strip{grid-template-columns:1fr}}
-@media(max-width:580px){.data-band{padding:68px 0}.data-panel{padding:17px}.pipeline-row{grid-template-columns:80px 1fr 30px}.migration-strip{gap:8px}}
+@media(max-width:580px){.data-band{padding:68px 0}.data-panel{padding:17px}.pipeline-row{grid-template-columns:1fr auto}.migration-strip{gap:8px}}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero .eyebrow,.hero h1,.hero-copy,.hero .actions,.diagram .node,.diagram .node-hot,.visual:after,.live-dot{animation:none}.in-view .signal-chart .line{stroke-dashoffset:0}.pipeline-fill{width:var(--fill);transition:none}}
 
 </style>
@@ -121,13 +120,13 @@ section{padding:105px 0;border-bottom:1px solid var(--line)}.section-top{display
 <path class="line" d="M0 118 C35 111 43 85 78 92 S125 126 160 85 S210 49 245 70 S292 95 325 56 S375 35 410 61 S460 90 495 43 S555 48 620 14"/>
 <circle class="point" cx="495" cy="43" r="4"/><circle class="point" cx="620" cy="14" r="4"/></svg>
 <div class="data-foot"><span><b data-count="70">70</b>Integrated source systems</span><span><b data-count="1000000" data-format="million">~1M</b>Events / day</span><span><b data-count="45000000" data-format="million">45M</b>Spanner records</span></div></div>
-<div class="data-panel reveal reveal-delay-1"><div class="data-panel-head"><span>PLATFORM COMPONENTS</span><span>02 — SERVICE MIX</span></div>
+<div class="data-panel reveal reveal-delay-1"><div class="data-panel-head"><span>ENGINEERING SNAPSHOT</span><span>02 — DELIVERY METRICS</span></div>
 <div class="pipeline-list">
-<div class="pipeline-row"><span>Cloud Run</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:100%"></div></div><b>20</b></div>
-<div class="pipeline-row"><span>Pub/Sub</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:82%"></div></div><b>~1M</b></div>
-<div class="pipeline-row"><span>Spanner</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:90%"></div></div><b>45M</b></div>
-<div class="pipeline-row"><span>Sources</span><div class="pipeline-track"><div class="pipeline-fill" style="--fill:78%"></div></div><b>70</b></div></div>
-<div class="data-foot"><span><b>100–200ms</b>Measured processing latency</span></div></div></div>
+<div class="pipeline-row"><span>Cloud Run services</span><b>20</b></div>
+<div class="pipeline-row"><span>Measured latency</span><b>100–200 ms</b></div>
+<div class="pipeline-row"><span>Professional experience</span><b>5+ years</b></div>
+<div class="pipeline-row"><span>Migration programmes</span><b>03</b></div></div>
+<div class="data-foot"><span>MDM · WAREHOUSE MODERNISATION · CLOUD MIGRATION</span></div></div></div>
 <div class="migration-strip">
 <div class="migration-item reveal"><small>01 / HEALTHCARE MDM</small><b>Nixgate → Verato</b><span>Saama · Ascension</span></div>
 <div class="migration-item reveal reveal-delay-1"><small>02 / DATA WAREHOUSE</small><b>Teradata → BigQuery</b><span>Infosys · METRO Europe</span></div>
